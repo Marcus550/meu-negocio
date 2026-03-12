@@ -1,0 +1,27 @@
+{
+  "name": "meu-negocio",
+  "version": "1.0.0",
+  "description": "Consultoria em RH e gestão de departamento pessoal: documentação, compliance e estruturação de escritórios",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcus550/meu-negocio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Marcus550/meu-negocio/issues"
+  },
+  "homepage": "https://github.com/Marcus550/meu-negocio#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "stripe": "^20.4.1"
+  }
+}
