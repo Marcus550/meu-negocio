@@ -202,6 +202,85 @@ footer {
     transform: scale(1.02);
 }
 
+/* CHECKOUT */
+.checkout-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.checkout-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 51, 102, 0.1);
+}
+
+.checkout-box h2 {
+    color: #003366;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.resumo {
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #003366;
+}
+
+.resumo h3 {
+    color: #003366;
+    margin-bottom: 0.5rem;
+}
+
+.resumo p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.resumo-preco {
+    font-size: 1.25rem;
+    color: #FF6B6B;
+    margin: 1rem 0;
+}
+
+.resumo-tempo {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card-element {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: #FF6B6B;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-pagar {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.payment-result {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    background: #ffe5e5;
+    color: #FF6B6B;
+}
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
     .nav-links {

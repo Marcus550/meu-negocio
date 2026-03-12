@@ -33,31 +33,9 @@ function exibirServicos(servicos) {
     });
 }
 
-// ========== COMPRAR SERVIÇO (Stripe) ==========
-async function comprarServico(servicoId) {
-    try {
-        const response = await fetch(`${API_URL}/checkout`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                servicoId: servicoId,
-                quantidade: 1
-            })
-        });
-
-        const data = await response.json();
-        
-        if (data.sessionId) {
-            // Aqui você redirecionaria para Stripe
-            alert('Sessão de pagamento criada! (Stripe será integrado em breve)');
-            console.log('Session ID:', data.sessionId);
-        }
-    } catch (error) {
-        console.error('Erro ao processar pagamento:', error);
-        alert('Erro ao processar pagamento');
-    }
+// ========== COMPRAR SERVIÇO (REDIRECIONAR PARA CHECKOUT) ==========
+function comprarServico(servicoId) {
+    window.location.href = `checkout.html?servico=${servicoId}`;
 }
 
 // ========== FORMULÁRIO DE CONTATO ==========

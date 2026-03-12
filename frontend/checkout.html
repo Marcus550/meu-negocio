@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Marcus Consultoria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Marcus Consultoria</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="checkout-container">
+        <div class="checkout-box">
+            <h2>Finalizar Compra</h2>
+            
+            <div id="resumo-servico" class="resumo">
+                <!-- Preenchido por JavaScript -->
+            </div>
+
+            <form id="payment-form">
+                <div id="card-element" class="card-element"></div>
+                <div id="card-errors" role="alert" class="error-message"></div>
+
+                <button type="submit" class="btn-primary btn-pagar">
+                    💳 Pagar Agora
+                </button>
+            </form>
+
+            <div id="payment-result" class="payment-result" style="display:none;">
+                <p id="payment-message"></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Marcus Consultoria. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+</body>
+</html>

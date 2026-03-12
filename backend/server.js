@@ -9,11 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Porta do servidor
+// Porta
 const PORT = process.env.PORT || 5000;
 
-// ========== BANCO DE DADOS SIMULADO ==========
-// (Depois vamos usar um banco real)
+// ========== BANCO DE DADOS ==========
 const servicos = [
     {
         id: 1,
@@ -38,15 +37,17 @@ const servicos = [
     }
 ];
 
-// ========== ROTAS DA API ==========
+// ========== ROTAS ==========
 
-// GET - Listar todos os serviços
+// GET - Listar serviços
 app.get('/api/servicos', (req, res) => {
+    console.log('GET /api/servicos');
     res.json(servicos);
 });
 
 // GET - Obter serviço por ID
 app.get('/api/servicos/:id', (req, res) => {
+    console.log(`GET /api/servicos/${req.params.id}`);
     const servico = servicos.find(s => s.id === parseInt(req.params.id));
     if (!servico) {
         return res.status(404).json({ mensagem: 'Serviço não encontrado' });
@@ -54,8 +55,11 @@ app.get('/api/servicos/:id', (req, res) => {
     res.json(servico);
 });
 
-// POST - Criar sessão de pagamento Stripe
+// POST - Checkout
 app.post('/api/checkout', async (req, res) => {
+    console.log('POST /api/checkout');
+    console.log('Body:', req.body);
+    
     try {
         const { servicoId, quantidade } = req.body;
         
@@ -84,28 +88,28 @@ app.post('/api/checkout', async (req, res) => {
             cancel_url: `${process.env.FRONTEND_URL}/cancelado.html`,
         });
 
+        console.log('Session criada:', session.id);
         res.json({ sessionId: session.id });
     } catch (error) {
-        console.error('Erro ao criar sessão:', error);
-        res.status(500).json({ mensagem: 'Erro ao processar pagamento' });
+        console.error('Erro:', error.message);
+        res.status(500).json({ mensagem: 'Erro ao processar pagamento', erro: error.message });
     }
 });
 
-// POST - Contato (para enviar email depois)
+// POST - Contato
 app.post('/api/contato', (req, res) => {
+    console.log('POST /api/contato');
     const { nome, email, mensagem } = req.body;
     
     if (!nome || !email || !mensagem) {
         return res.status(400).json({ mensagem: 'Preencha todos os campos' });
     }
 
-    // Aqui você enviaria um email (vamos configurar depois)
-    console.log('Novo contato:', { nome, email, mensagem });
-    
+    console.log('Contato recebido:', { nome, email, mensagem });
     res.json({ mensagem: 'Mensagem recebida! Entraremos em contato em breve.' });
 });
 
-// ========== INICIAR SERVIDOR ==========
+// ========== INICIAR ==========
 app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });

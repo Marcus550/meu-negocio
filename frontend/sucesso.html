@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Realizado - Marcus Consultoria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .sucesso-container {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .sucesso-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.1);
+        }
+
+        .sucesso-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .sucesso-box h1 {
+            color: #003366;
+            margin-bottom: 1rem;
+        }
+
+        .sucesso-box p {
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .session-id {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 2rem 0;
+            word-break: break-all;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-voltar {
+            background: #003366;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .btn-voltar:hover {
+            background: #002244;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Marcus Consultoria</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#servicos">Serviços</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="sucesso-container">
+        <div class="sucesso-box">
+            <div class="sucesso-icon">✅</div>
+            <h1>Pagamento Realizado!</h1>
+            <p>Obrigado por contratar nossos serviços!</p>
+            <p>Você receberá um e-mail de confirmação em breve com todos os detalhes do seu pedido.</p>
+            
+            <div class="session-id">
+                <strong>ID da Sessão:</strong><br>
+                <span id="session-id"></span>
+            </div>
+
+            <p>Nossa equipe entrará em contato em breve para iniciar o trabalho.</p>
+
+            <a href="index.html" class="btn-voltar">← Voltar ao Home</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Marcus Consultoria. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Exibir Session ID
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get('session_id');
+        if (sessionId) {
+            document.getElementById('session-id').textContent = sessionId;
+        }
+    </script>
+</body>
+</html>
